@@ -66,7 +66,6 @@ RSpec.describe Driver, type: :model do
 
   describe 'factories' do
     it 'should create a valid driver' do
-      driver = FactoryBot.create(:driver)
       expect(driver).to be_valid
     end
 
