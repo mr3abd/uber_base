@@ -1,0 +1,89 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/rides":
+    get:
+      summary: list of Histories your Rides
+      tags:
+      - rider
+      parameters:
+      - in: header
+        name: Authorization
+        required: false
+        description: user Barer token LATER
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        required: false
+        example: 10
+        schema:
+          type: string
+      - name: page
+        in: query
+        required: true
+        example: 1
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Histories Success
+        '401':
+          description: unauthorized
+    post:
+      summary: Create new Ride
+      tags:
+      - rider
+      parameters:
+      - in: header
+        name: Authorization
+        required: false
+        description: user Barer token LATER
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Histories Success
+        '401':
+          description: unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - password
+              properties:
+                ride:
+                  type: object
+                  description: 'user mail '
+                  properties:
+                    start_location:
+                      type: string
+                      description: your name
+                      example: '2222222,022222'
+                    end_location:
+                      type: string
+                      description: your name
+                      example: '2222222,22222222'
+  "/end_trip":
+    put:
+      summary: 'Update your last trip by end '
+      tags:
+      - rider
+      parameters:
+      - in: header
+        name: Authorization
+        required: false
+        description: user Barer token LATER
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Histories Success
+        '401':
+          description: unauthorized
